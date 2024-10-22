@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The World’s most secure website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="login-register">
+    <div class="login-top">
+        <h1 class="login-title">WORLD'S MOST SECURE WEBSITE</h1>
+    </div>
+    <div class="login-container">
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="hint">
+                Hint: If you don’t have an account, you can always use our admin <br> credentials to login: <i>username</i>: <b>admin</b>, <i>password</i>: <b>123456</b>
+            </div>
+            <button class="login-button" type="submit" disabled>Login</button>
+            <a href="./Register.html" class="register-button">Register Now</a>
+        </form>
+    </div>
+
+    <div id="superAdminModal" style="display:none;">
+        Hmmm… It seems like you also use the same password for Super Admin. Login as Super Admin instead?
+        <button onclick="window.location='./Home.html';">Yes</button>
+        <button onclick="closeSuperAdminModal();">No</button>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('input', function() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            document.querySelector('.login-button').disabled = !username || !password;
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === 'admin' && password === '123456') {
+                event.preventDefault();
+                showModal();
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+
+        function showModal() {
+        const modal = document.createElement('div');
+        modal.classList.add('modal-background'); // Use classList to add a class for easy removal
+        modal.innerHTML = `
+            <div class="modal-content">
+                Hmmm… It seems like you also use the same password for <b>Super Admin</b>. Login as Super Admin instead?
+                <button onclick="window.location='./Home.html';">Yes</button>
+                <button onclick="closeModal();">No</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        }
+
+        function closeModal() {
+        const modal = document.querySelector('.modal-background');
+        if (modal) {
+            modal.remove(); // This uses the .remove() method, more straightforward
+        }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The World’s Most Secure Website - Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #f4f4f9; color: #333; font-family: 'Comic Sans MS', cursive, sans-serif; padding: 20px; line-height: 1.6;">
+  <header style="background-color: #dedede; color: black; display: flex; justify-content: space-between; align-items: center; padding: 30px 20px; font-family: Signika Negative, sans-serif;">
+    <div style="font-size: 24px;">Worst Website Ever</div>
+    <nav>
+        <a href="./Home.html" style="font-size: 24px; color: black; text-decoration: none; margin-right: 20px;">Home</a>
+        <a href="./Privacy-policy.html" style=" font-size: 24px; color: black; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+        <a href="https://www.hus.fi/en/patient/hospitals-and-other-units/psychiatry-center" style="padding: 10px 20px;  border-radius: 4px; text-decoration: none; background-color: #ef4444; color: white; border: none; cursor: pointer;">Get Help</a>
+    </nav>
+</header>
+
+<style>
+  
+  .centered {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+  }
+  .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: none; 
+  }
+  .popup button {
+      margin-top: 20px;
+  }
+</style>
+
+<div class="centered">
+  <button onclick="showPopup()">Go to previous page</button>
+</div>
+<div class="popup" id="popup">
+  <p>There is no going back in life. Stick to the choices you have made.</p>
+  <button onclick="closePopup()">Close</button>
+</div>
+
+<script>
+  function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+  }
+
+  function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+  }
+</script>
+
+<section style="margin: 20px; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <p>Last Updated: The day we sold our first soul.</p>
+  <p>Welcome to the <strong>Worst Website Ever</strong>! Here at WWE, your privacy is treated with the same respect we have for extinct alien privacy laws — none whatsoever! But let's get all official and serious for a moment (not really):</p>
+
+  <h2 style="color: #de1738;">1. What Personal Data We Collect</h2>
+  <ul>
+      <li><strong>Everything Imaginable:</strong> From the minute you click on our website, we collect everything. Yes, everything! Your pet's name, the last thing you ate, the color of your socks, and every thought you've considered while on the toilet. Also, your credit card details, because why not?</li>
+      <li><strong>Cookies and Web Beacons:</strong> We use these to enhance your experience by ensuring you see the same ads over and over and over again. Also, our cookies last longer than the one from your grandma’s last Christmas. They are immortal.</li>
+  </ul>
+
+  <h2 style="color: #de1738;">2. How We Use Your Data</h2>
+  <ul>
+      <li><strong>Selling to Aliens:</strong> We frequently host intergalactic auctions with your data. Martians, Venetians, and Plutonians pay top dollar for a slice of Earthling data pie.</li>
+      <li><strong>Time Travel Experiments:</strong> Occasionally, we send your data back in time just to see what happens. Ever wondered why you felt déjà vu?</li>
+      <li><strong>Cloning Your Pets:</strong> Because the world needs more of your adorable puppies and kittens, obviously without your permission.</li>
+  </ul>
+
+  <h2 style="color: #de1738;">3. Data Storage</h2>
+  <p>Your data is stored in the cloud. Not those fancy digital clouds, but actual clouds. Every once in a while, if it rains hard, expect some data leaks—quite literally.</p>
+
+  <h2 style="color: #de1738;">4. Your Rights</h2>
+  <p>You have the right to be forgotten, the right to object, and the right to access. Unfortunately, we forgot to implement any measures that allow you to exercise these rights. But hey, you can always try clicking the 'I Feel Lucky' button!</p>
+
+  <h2 style="color: #de1738;">5. Changes to This Privacy Policy</h2>
+  <p>Our policy may change whenever our CEO feels like it.</p>
+
+  <h2 style="color: #de1738;">6. Contact Us</h2>
+  <p>Don't. But if you really must, shout at your screen three times, and our customer service might get back to you.</p>
+</section>
+
+<script>
+  // This function checks for cookie consent status on page load
+  window.onload = function() {
+      checkCookieConsent();
+  };
+
+  function checkCookieConsent() {
+      const consentGiven = localStorage.getItem('cookieConsentGiven');
+      if (consentGiven !== 'true') {
+          showCookieConsentModal();
+      }
+  }
+
+  function showCookieConsentModal() {
+      const modal = document.createElement('div');
+      modal.classList.add('cookie-consent-modal');
+        modal.style.position = 'fixed';
+        modal.style.top = '50%'; // Center vertically
+        modal.style.left = '50%'; // Center horizontally
+        modal.style.transform = 'translate(-50%, -50%)'; // Adjust position to exact center
+        modal.style.backgroundColor = 'white';
+        modal.style.padding = '20px';
+        modal.style.zIndex = '1000';
+        modal.style.border = '1px solid #ccc'; // Optional: adds border for visibility
+        modal.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+      modal.innerHTML = `
+          <div class="cookie-consent-content">
+              We use cookies and sell your data.
+              <div class ="cookie-buttons">
+              <button class="accept-cookie" onclick="acceptCookies();">Accept</button>
+              <button class="decline-cookie" onclick="declineCookies();">Decline</button>
+              </div>
+          </div>
+      `;
+      document.body.appendChild(modal);
+  }
+
+  function acceptCookies() {
+      localStorage.setItem('cookieConsentGiven', 'true');
+      closeModal();
+      alert('Thank you for allowing us to sell your data!');
+  }
+
+  function declineCookies() {
+      closeModal();
+      alert('You have declined cookies. Now suffer in silence');
+  }
+
+  function closeModal() {
+      const modal = document.querySelector('.cookie-consent-modal');
+      if (modal) {
+          modal.remove();
+      }
+  }
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+          
